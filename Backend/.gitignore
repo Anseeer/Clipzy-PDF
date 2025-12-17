@@ -1,0 +1,13 @@
+node_modules/
+node_modules
+
+*.js
+
+dist/
+build/
+
+*.log
+
+.DS_Store
+.env.development
+.env.production
