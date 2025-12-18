@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import logger from "../utilities/logger";
 import { StatusCode } from "../constants/statusCode";
-import { errorResponse } from "../utilities/response";
+import { ErrorResponse } from "../utilities/response";
 
 export const errorHandler = (
-    err: errorResponse<unknown>,
+    err: ErrorResponse<unknown>,
     req: Request,
     res: Response,
     _next: NextFunction
