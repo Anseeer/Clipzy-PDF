@@ -21,5 +21,7 @@ export const COMMON_MESSAGE = {
     TOKEN_MISSING: "Authentication token is missing.",
     TOKEN_INVALID: "Invalid or expired token.",
     INTERNAL_SERVER_ERROR: "Internal server error. Please try again later.",
-    REFRESH_ACCESS_TOKEN: "Refresh new accessToken."
+    REFRESH_ACCESS_TOKEN: "Refresh new accessToken.",
+    DB_CONNECTION_SUCCESS: "DB connected successfully..",
+    DB_CONNECTION_FAILD: "DB connection faild",
 };

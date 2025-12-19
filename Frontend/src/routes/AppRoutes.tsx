@@ -9,7 +9,11 @@ import ProtectedRoute from "./ProtectedRoute";
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={
+                <PublicRoute>
+                    <LandingPage />
+                </PublicRoute>
+            } />
             <Route path="/login" element={
                 <PublicRoute>
                     <LoginPage />
@@ -26,7 +30,7 @@ const AppRoutes = () => {
                 </ProtectedRoute>
             } />
         </Routes>
-    )
+    );
 }
 
 export default AppRoutes;

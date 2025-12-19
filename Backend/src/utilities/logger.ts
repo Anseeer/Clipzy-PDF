@@ -16,13 +16,11 @@ const logger = createLogger({
     logFormat
   ),
   transports: [
-    // Error logs
     new transports.File({
       filename: "logs/error.log",
       level: "error"
     }),
 
-    // All logs
     new transports.File({
       filename: "logs/combined.log"
     })

@@ -1,8 +1,13 @@
+import { Footer } from "../components/Footer";
+import Header from "../components/Header";
+import ClipzyLanding from "../components/Landing";
 
 const LandingPage = () => {
     return (
         <>
-            <h1>LandingPage Clipzy PDF</h1>
+            <Header />
+            <ClipzyLanding />
+            <Footer />
         </>
     )
 }

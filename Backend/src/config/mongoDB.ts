@@ -1,6 +1,7 @@
 import dotenv from "dotenv"
 import mongoose from "mongoose";
 import logger from "../utilities/logger";
+import { COMMON_MESSAGE } from "../constants/messages";
 
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env.development";
 dotenv.config({ path: envFile });
@@ -9,8 +10,8 @@ export const configDB = async () => {
     try {
         const mongoURI = process.env.MONGO_URI;
         await mongoose.connect(mongoURI as string)
-        logger.info("DB connected successfully..");
+        logger.info(COMMON_MESSAGE.DB_CONNECTION_SUCCESS);
     } catch (error) {
-        logger.info("DB faild to connect", error);
+        logger.error(COMMON_MESSAGE.DB_CONNECTION_FAILD, error);
     }
 }

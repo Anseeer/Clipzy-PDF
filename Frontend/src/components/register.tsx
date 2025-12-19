@@ -69,7 +69,9 @@ export const RegisterForm = () => {
                     {/* Header */}
                     <div className="text-center mb-6">
                         <div className="flex justify-center mb-4">
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center shadow-lg">
+                            <div
+                                onClick={() => navigate('/')}
+                                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center shadow-lg">
                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path
                                         strokeLinecap="round"
@@ -90,7 +92,6 @@ export const RegisterForm = () => {
                         {({ errors, touched }) => (
                             <Form className="space-y-5">
 
-                                {/* Row 1: Name + Email */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
@@ -124,7 +125,6 @@ export const RegisterForm = () => {
                                     </div>
                                 </div>
 
-                                {/* Row 2: Password + Confirm Password */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                                     {/* Password */}

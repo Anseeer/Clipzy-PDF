@@ -6,6 +6,8 @@ import { login } from '../services/user.services';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/user.slice';
 import toast from 'react-hot-toast';
+import { EyeIcon } from 'lucide-react';
+import { EyeSlashIcon } from '@heroicons/react/24/outline';
 
 interface FormErrors {
     email?: string;
@@ -30,6 +32,7 @@ export const LoginForm = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const [errors, setErrors] = useState<FormErrors>({});
     const [touched, setTouched] = useState<FormTouched>({
         email: false,
@@ -91,7 +94,9 @@ export const LoginForm = () => {
                     {/* Header */}
                     <div className="text-center mb-5">
                         <div className="flex justify-center mb-6">
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center shadow-lg">
+                            <div
+                                onClick={() => navigate('/')}
+                                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center shadow-lg">
                                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -130,26 +135,38 @@ export const LoginForm = () => {
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                 Password
                             </label>
-                            <input
-                                type="password"
-                                name="password"
-                                value={values.password}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                placeholder="••••••••"
-                                className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 
-                ${errors.password && touched.password ? 'border-red-500 focus:ring-red-300' : 'border-gray-300 focus:ring-pink-400'}`}
-                            />
+
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    value={values.password}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder="••••••••"
+                                    className={`w-full px-4 py-3 pr-12 rounded-lg border focus:outline-none focus:ring-2 
+        ${errors.password && touched.password
+                                            ? "border-red-500 focus:ring-red-300"
+                                            : "border-gray-300 focus:ring-pink-400"
+                                        }`}
+                                />
+
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(prev => !prev)}
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                >
+                                    {showPassword ? (
+                                        <EyeIcon className="w-5 h-5" />
+                                    ) : (
+                                        <EyeSlashIcon className="w-5 h-5" />
+                                    )}
+                                </button>
+                            </div>
+
                             {touched.password && errors.password && (
                                 <p className="text-sm text-red-600 mt-2">{errors.password}</p>
                             )}
-                        </div>
-
-                        {/* Remember & Forgot */}
-                        <div className="flex justify-between items-center text-sm">
-                            <a href="#" className="font-medium text-pink-800 hover:underline">
-                                Forgot password?
-                            </a>
                         </div>
 
                         {/* Button */}
