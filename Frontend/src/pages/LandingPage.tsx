@@ -1,4 +1,4 @@
-import { Footer } from "../components/Footer.tsx";
+import Footer from "../components/Footer.tsx";
 import Header from "../components/Header.tsx";
 import ClipzyLanding from "../components/Landing.tsx";
 

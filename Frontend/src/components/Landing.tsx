@@ -1,7 +1,7 @@
 import { FileText, Scissors, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-export default function ClipzyLanding() {
+const ClipzyLanding = () => {
     const navigate = useNavigate();
 
     return (
@@ -81,3 +81,5 @@ export default function ClipzyLanding() {
         </div>
     );
 }
+
+export default ClipzyLanding;

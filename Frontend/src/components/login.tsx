@@ -24,7 +24,7 @@ interface FormTouched {
     password: boolean;
 }
 
-export const LoginForm = () => {
+const LoginForm = () => {
     const [values, setValues] = useState<FormValues>({
         email: '',
         password: '',
@@ -194,3 +194,4 @@ export const LoginForm = () => {
     );
 };
 
+export default LoginForm;

@@ -1,6 +1,6 @@
 import { FileText } from "lucide-react"
 
-export const Footer = () => {
+const Footer = () => {
     return (
         <>
             <footer className="bg-pink-900 text-gray-300 py-5">
@@ -30,3 +30,5 @@ export const Footer = () => {
         </>
     )
 }
+
+export default Footer;

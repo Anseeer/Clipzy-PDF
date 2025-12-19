@@ -16,7 +16,7 @@ interface FormValues {
     confirmPassword: string;
 }
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -223,3 +223,5 @@ export const RegisterForm = () => {
         </div>
     );
 };
+
+export default RegisterForm;
