@@ -1,6 +1,6 @@
-import { Footer } from "../components/Footer";
-import Header from "../components/Header";
-import ClipzyLanding from "../components/Landing";
+import { Footer } from "../components/Footer.tsx";
+import Header from "../components/Header.tsx";
+import ClipzyLanding from "../components/Landing.tsx";
 
 const LandingPage = () => {
     return (

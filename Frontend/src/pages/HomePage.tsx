@@ -1,7 +1,7 @@
 import { useState } from "react";
-import PdfPreview from "../components/PdfPreview";
-import PdfUploader from "../components/PdfUploader"
-import Header from "../components/Header";
+import PdfPreview from "../components/PdfPreview.tsx";
+import PdfUploader from "../components/PdfUploader.tsx"
+import Header from "../components/Header.tsx";
 
 export const HomePage = () => {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
