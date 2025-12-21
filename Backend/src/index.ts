@@ -35,7 +35,7 @@ app.use("/", userRoute);
 
 app.use(errorHandler)
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3003;
 
 app.listen(PORT, () => {
     logger.info(`Server running on port : http://localhost:${PORT}/test`);
