@@ -23,6 +23,7 @@ const Footer = () => {
 
                     <div className="border-t border-pink-800 pt-6 text-center text-sm">
                         <p>&copy; 2024 Clipzy. All rights reserved.</p>
+                        <p className="mt-1 text-gray-400">Developed by Ahmed Anseer</p>
                     </div>
 
                 </div>
