@@ -18,7 +18,9 @@ app.use(urlencoded({ extended: true }));
 
 const allowedOrigins = [
     process.env.CLIENT_URL as string,
+    process.env.DEPLOYED_URL as string,
 ];
+console.log("Allowed origin :", allowedOrigins)
 
 app.use(
     cors({
