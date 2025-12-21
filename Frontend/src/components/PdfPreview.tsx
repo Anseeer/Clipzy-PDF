@@ -10,7 +10,7 @@ type Props = {
     onReset: () => void;
 };
 
-const PdfPreview: React.FC<Props> = ({ file, onReset }) => {
+const PdfPreview = ({ file, onReset }: Props) => {
     const [numPages, setNumPages] = useState<number>(0);
     const [selectedPages, setSelectedPages] = useState<number[]>([]);
 

@@ -5,7 +5,7 @@ type Props = {
     onPdfSelect: (file: File) => void;
 };
 
-const PdfUploader: React.FC<Props> = ({ onPdfSelect }) => {
+const PdfUploader = ({ onPdfSelect }:Props) => {
     const [dragActive, setDragActive] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
 
