@@ -4,7 +4,7 @@ import PdfUploader from "../components/PdfUploader"
 import Header from "../components/Header";
 
 export const HomePage = () => {
-    const [pdfFile, setPdfFile] = useState<File | null>(null);
+    const [pdfFile, setPdfFile] = useState<string | null>(null);
 
     return (
         <>

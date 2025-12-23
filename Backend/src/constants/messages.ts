@@ -24,4 +24,10 @@ export const COMMON_MESSAGE = {
     REFRESH_ACCESS_TOKEN: "Refresh new accessToken.",
     DB_CONNECTION_SUCCESS: "DB connected successfully..",
     DB_CONNECTION_FAILD: "DB connection faild",
+    ONLY_PDF_ALLOWED: "Only PDF files are allowed",
+    PDF_NOT_FOUND: "PDF file not found",
+    PDF_UPLOADED_SUCCESSFULL: "PDF uploaded successfully",
+    PDF_EXTRACTED_SUCCESSFULL: "PDF pages extracted successfully",
+    FILE_NOT_FOUND: "File not found",
+    FILE_NAME_AND_PAGES_ARE_REQUIRED: "Filename and pages are required",
 };

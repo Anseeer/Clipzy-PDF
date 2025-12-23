@@ -1,26 +1,37 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { uploads } from "../services/pdf.services";
+import { USER_MESSAGE } from "../constants/messages";
 
 type Props = {
-    onPdfSelect: (file: File) => void;
+    onPdfSelect: (file: string | null) => void;
 };
 
-const PdfUploader = ({ onPdfSelect }:Props) => {
+const PdfUploader = ({ onPdfSelect }: Props) => {
     const [dragActive, setDragActive] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
 
-    const handleFile = (file: File) => {
+    const handleFile = async (file: File) => {
         if (file.type !== "application/pdf") {
-            toast.error("Only PDF files are allowed");
+            toast.error(USER_MESSAGE.ONLY_PDF_ALLOWED);
             return;
         }
 
         setIsProcessing(true);
 
-        setTimeout(() => {
-            onPdfSelect(file);
+        try {
+            const result = await uploads(file);
+            toast.success(USER_MESSAGE.PDF_UPLOADED_SUCCESSFULL);
+            console.log("Backend response:", result);
+            onPdfSelect(result.data.filename);
+        } catch (error: any) {
+            console.error(error);
+            toast.error(error?.response?.data?.message || USER_MESSAGE.PDF_UPLOADED_FAILD);
+        } finally {
             setIsProcessing(false);
-        }, 300);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

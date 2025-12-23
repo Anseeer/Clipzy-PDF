@@ -6,12 +6,15 @@ import logger from "./utilities/logger";
 import { configDB } from "./config/mongoDB";
 import { StatusCode } from "./constants/statusCode";
 import userRoute from "./routes/user.routes";
+import pdfRoute from "./routes/pdf.routes";
 import { errorHandler } from "./middlewares/error.middleware";
+import { cleanupUploads } from "./utilities/cleanupUploads";
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env.development";
 dotenv.config({ path: envFile });
 
 const app = express();
 configDB()
+cleanupUploads()
 app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
@@ -34,6 +37,7 @@ app.get('/test', (req, res) => {
 })
 
 app.use("/", userRoute);
+app.use("/pdf", pdfRoute);
 
 app.use(errorHandler)
 
