@@ -21,6 +21,7 @@ const RegisterForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const initialValues: FormValues = {
@@ -52,11 +53,14 @@ const RegisterForm = () => {
 
     const handleSubmit = async (values: FormValues) => {
         try {
+            setLoading(true)
             const res = await register(values);
             dispatch(registerSuccess(res.data.data));
             toast.success("Registeration success.");
             navigate('/home')
+            setLoading(true)
         } catch (err: any) {
+            setLoading(false)
             toast.error(err.response?.data?.message || 'Registeration failed');
         }
     };
@@ -205,7 +209,7 @@ const RegisterForm = () => {
                                     type="submit"
                                     className="w-full py-3 rounded-lg bg-pink-900 text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
                                 >
-                                    Create Account
+                                    {loading ? 'Creating...' : 'Create Account'}
                                 </button>
                             </Form>
                         )}

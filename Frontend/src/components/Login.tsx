@@ -33,6 +33,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<FormErrors>({});
     const [touched, setTouched] = useState<FormTouched>({
         email: false,
@@ -65,6 +66,7 @@ const LoginForm = () => {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
+        setLoading(true);
         e.preventDefault();
         setTouched({ email: true, password: true });
 
@@ -80,7 +82,9 @@ const LoginForm = () => {
                 dispatch(loginSuccess(res.data.data));
                 toast.success("Login success.");
                 navigate('/home')
+                setLoading(false)
             } catch (err: any) {
+                setLoading(false)
                 toast.error(err.response?.data?.message || 'Login failed');
             }
         }
@@ -175,7 +179,7 @@ const LoginForm = () => {
                             className="w-full py-3 rounded-lg bg-pink-900 text-white font-semibold shadow-lg
               hover:shadow-xl hover:-translate-y-0.5 transition-all"
                         >
-                            Sign In
+                            {loading ? ' Signing..' : ' Sign In'}
                         </button>
                     </form>
 
